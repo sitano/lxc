@@ -1544,7 +1544,11 @@ int lxc_attach(struct lxc_container *container, lxc_attach_exec_t exec_function,
 	 *          into the cgroup, which we can only do if we didn't already
 	 *          setns() (otherwise, user namespaces will hate us).
 	 */
-	pid = fork();
+	if (options->fork) {
+		pid = options->fork(options->fork_payload);
+	} else {
+		pid = fork();
+	}
 	if (pid < 0) {
 		put_attach_context(ctx);
 		return syserror("Failed to create first subprocess");
@@ -1608,7 +1612,11 @@ int lxc_attach(struct lxc_container *container, lxc_attach_exec_t exec_function,
 		free_disarm(cwd);
 
 		/* Create attached process. */
-		pid = lxc_raw_clone(CLONE_PARENT, NULL);
+		if (options->fork) {
+			pid = options->fork(options->fork_payload);
+		} else {
+			pid = lxc_raw_clone(CLONE_PARENT, NULL);
+		}
 		if (pid < 0) {
 			SYSERROR("Failed to clone attached process");
 			shutdown(ipc_sockets[1], SHUT_RDWR);
