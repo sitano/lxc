@@ -4,6 +4,7 @@
 #define __LXC_ATTACH_OPTIONS_H
 
 #include <sys/types.h>
+#include <stdbool.h>
 
 #ifdef  __cplusplus
 extern "C" {
@@ -155,6 +156,11 @@ typedef struct lxc_attach_options_t {
 	 * If unset all additional groups are dropped.
 	 */
 	lxc_groups_t groups;
+
+	/*! Pass by control further after attach.
+	 *  Allows to return in attached process.
+	 */
+	bool pass_by;
 } lxc_attach_options_t;
 
 /*! Default attach options to use */
@@ -175,6 +181,7 @@ typedef struct lxc_attach_options_t {
 		.log_fd		= -EBADF,               		\
 		.lsm_label	= NULL,					\
 		.groups		= {},					\
+		.pass_by	= false,				\
 	}
 
 /*!
