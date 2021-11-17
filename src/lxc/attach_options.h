@@ -78,6 +78,14 @@ enum {
  */
 typedef int (*lxc_attach_exec_t)(void* payload);
 
+/*! LXC fork function type.
+ *
+ * Function to fork.
+ *
+ * \return Same as in fork(2).
+ */
+typedef pid_t (*lxc_fork_t)(void *payload);
+
 typedef struct lxc_groups_t {
 	size_t size;
 	gid_t *list;
@@ -161,6 +169,14 @@ typedef struct lxc_attach_options_t {
 	 *  Allows to return in attached process.
 	 */
 	bool pass_by;
+
+	/*! Custom fork implementation.
+	 *  Also used instead of clone3(CLONE_PARENT).
+	 */
+	lxc_fork_t fork;
+
+	/*! Custom fork implementation payload. */
+	void *fork_payload;
 } lxc_attach_options_t;
 
 /*! Default attach options to use */
