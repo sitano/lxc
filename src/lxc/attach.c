@@ -1114,6 +1114,7 @@ struct attach_payload {
 	struct attach_context *ctx;
 	lxc_attach_exec_t exec_function;
 	void *exec_payload;
+	int result;
 };
 
 static void put_attach_payload(struct attach_payload *p)
@@ -1126,7 +1127,7 @@ static void put_attach_payload(struct attach_payload *p)
 	}
 }
 
-__noreturn static void do_attach(struct attach_payload *ap)
+static int do_attach(struct attach_payload *ap)
 {
 	lxc_attach_exec_t attach_function = move_ptr(ap->exec_function);
 	void *attach_function_args = move_ptr(ap->exec_payload);
@@ -1366,15 +1367,17 @@ __noreturn static void do_attach(struct attach_payload *ap)
 	if (!lxc_switch_uid_gid(ctx->target_ns_uid, ctx->target_ns_gid))
 		goto on_error;
 
-	put_attach_payload(ap);
-
 	/* We're done, so we can now do whatever the user intended us to do. */
-	_exit(attach_function(attach_function_args));
+	if (attach_function) {
+		ap->result = attach_function(attach_function_args);
+	}
+
+	return 0;
 
 on_error:
-	ERROR("Failed to attach to container");
-	put_attach_payload(ap);
-	_exit(EXIT_FAILURE);
+	ap->result = EXIT_FAILURE;
+
+	return syserror("Failed to attach to container");
 }
 
 static int lxc_attach_terminal(const char *name, const char *lxcpath, struct lxc_conf *conf,
@@ -1621,6 +1624,7 @@ int lxc_attach(struct lxc_container *container, lxc_attach_exec_t exec_function,
 				.terminal_pts_fd	= terminal.pty,
 				.exec_function		= exec_function,
 				.exec_payload		= exec_payload,
+				.result				= EXIT_SUCCESS,
 			};
 
 			if (options->attach_flags & LXC_ATTACH_TERMINAL) {
@@ -1631,8 +1635,20 @@ int lxc_attach(struct lxc_container *container, lxc_attach_exec_t exec_function,
 				}
 			}
 
-			/* Does not return. */
-			do_attach(&ap);
+			ret = do_attach(&ap);
+			if (!options->pass_by) {
+				put_attach_payload(&ap);
+				_exit(ret);
+			}
+
+			/* the rest (ctx, terminal and ipc_socket will be cleaned up by on_error) */
+			close_prot_errno_disarm(ap.ipc_socket);
+
+			/* child returns 0 */
+			ret_parent = 0;
+			to_cleanup_pid = -1;
+
+			goto on_error;
 		}
 		TRACE("Attached process %d started initializing", pid);
 
