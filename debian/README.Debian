@@ -1,0 +1,148 @@
+LXC for Debian
+--------------
+
+Most templates ship without a root password, so you cannot login with
+ lxc-console -n <container>
+You can, however, get a shell (without a tty) by running
+ lxc-attach -n <container>
+
+If you really need a root password set, you can do so by calling
+ lxc-attach -n <container> passwd
+or you could allow a password-less login by calling
+ lxc-attach -n <container> sed -i '/root/ s/:\*:/::/' /etc/shadow
+After either of these you will be again able to login via lxc-console.
+
+Starting LXC containers
+-----------------------
+
+Should you meet troubles to start a container, a first thing to do is to check
+whether apparmor is installed (it is a Recommend of the package, hence it can
+be absent if you disabled the installation of recommends).  If not, you have
+two options:
+
+ 1. Install it
+ 2. Alter the lxc.apparmor.profile entry in `/etc/lxc/default.conf`, and in
+    your containers configurations. `lxc.apparmor.profile = unconfined` is the
+    appropriate option. Mind also to remove the `lxc.apparmor.allow_nesting`
+    entry.
+
+If AppArmor is present and you still have issues, follow the advice by setting
+--logfile and --logpriority options and you'll get more intel on why your
+containers won't start.
+
+Unprivileged containers
+-----------------------
+
+Using unprivileged containers, i.e. containers started by non-root users,
+requires a few configuration steps. Steps 1 to 3 need to be done as root, and 4
+to 6 as your non-root user.
+
+1) User namespaces
+
+The Linux kernel must have unprivileged user namespaces enabled. This is
+default in the default Debian kernel since 5.10+. To check run this command:
+
+  # sysctl kernel.unprivileged_userns_clone
+  kernel.unprivileged_userns_clone = 1
+
+If it reports 0 instead 1, it's disabled. To enable it:
+
+  # echo kernel.unprivileged_userns_clone=1 > /etc/sysctl.d/unpriv-usernd.conf
+  # sysctl -p
+
+2) subuid and subgid
+
+Your user account needs to have entries in /etc/subuid and /etc/subgid:
+
+  # grep myusername /etc/subuid /etc/subgid
+  /etc/subuid:myusername:100000:65536
+  /etc/subgid:myusername:100000:65536
+
+In recent systems, that should already be the case. Otherwise, you can add
+those entries with `usermod` options --add-subuids and --add-subgids.
+
+3) Permissions checking
+
+Make sure that for your user, .local/share/lxc will be accessible (eXecutable
+bit on the directories) by the root subuid associated with your user (in the
+example above, it'd be uid 100000.
+
+There are at least two solutions if it's not. The firstone is a chmod a+x on
+the directories. If you chose this one do mind the security implications. In
+particular, it is recommended in that case to set your container's rootfs with
+mode 770 or 750 so that any external user can't see its content.
+
+An alternative is to use setfacl to just give the access to that uid. As the
+user who will run the unprivileged container, from your home, run
+
+$ setfacl --modify user:100000:x . .local .local/share
+
+4) Networking configuration
+
+The easiest way to setup networking is to use lxc-net, which is enabled by
+default for containers started by root. For non-root unprivileged containers,
+you need to allow your non-root user to create virtual network interfaces with:
+
+  # echo myusername veth lxcbr0 10 >> /etc/lxc/lxc-usernet
+
+5) Default container configuration
+
+Add the following to ~/.config/lxc/default.conf:
+
+  lxc.include = /etc/lxc/default.conf
+  lxc.idmap = u 0 100000 65536
+  lxc.idmap = g 0 100000 65536
+  lxc.mount.auto = proc:mixed sys:ro cgroup:mixed
+  lxc.apparmor.profile = unconfined
+
+The lxc.idmap entries must match the id ranges in /etc/subuid and /etc/subgid,
+as explained in step 2 above.
+
+6) Creating containers
+
+non-root users can only use the `download` template. Example:
+
+  $ lxc-create -t download -n mycontainer -- -d debian -r bullseye -a amd64
+
+7) Starting containers
+
+Under the unified groups hierarchy (default in systemd starting with Debian
+11/bullseye), a non-root user needs lxc-start to have some additional
+privileges to start container as a non-root user. The easiest way to do that
+is via systemd. You can either start the container via a user defined service
+that sets Delegate=true property, or do it explicitly with system-run:
+
+  $ systemd-run --scope --quiet --user --property=Delegate=yes \
+    lxc-start -n mycontainer
+
+or, lastly, you can use the helper script Debian made available:
+lxc-unpriv-start. It'll care about using the systemd-run command properly and
+also to make sure the required environment variables are set properly.
+
+8) Managing containers
+
+When not logged in on a graphical session, lxc-attach also requires being run
+via systemd-run as lxc-start above. Other common actions, such as lxc-console,
+lxc-stop and lxc-destroy, can be run directly.
+
+Debian also made available a lxc-unpriv-attach command to ease the use of
+lxc-attach.
+
+9) Avoiding containers destruction by systemd
+
+When exiting a user session (closing ssh or a tty), the remaining processes
+running in background die, including the containers. The solution to avoid such
+an issue is to either have the unprivileged containers running as a user
+service, or to enable session lingering via loginctl.
+
+As a user, if policykit-1 is installed, it's just a call to `loginctl
+enable-linger`
+
+If policykit-1 can't be installed, then one must be root and do a `sudo
+loginctl enable-linger {username}`.
+
+Containers started via systemd-run won't get killed.
+
+ -- Evgeni Golov <evgeni@debian.org>  Sat, 16 Jul 2016 11:49:16 +0200
+ -- Antonio Terceiro <terceiro@debian.org>  Sat, 30 Jan 2021 10:02:37 -0300
+ -- Pierre-Elliott Bécue <peb@debian.org>  Fri, 11 Jun 2021 15:08:30 +0200

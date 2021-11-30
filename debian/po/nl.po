@@ -1,0 +1,58 @@
+# Dutch translation of lxc debconf templates.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lxc package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Frans Spiesschaert <Frans.Spiesschaert@yucom.be>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxc_1_3.1.0+really3.0.3-2\n"
+"Report-Msgid-Bugs-To: lxc@packages.debian.org\n"
+"POT-Creation-Date: 2018-11-29 22:19+0100\n"
+"PO-Revision-Date: 2019-02-12 16:38+0100\n"
+"Last-Translator: Frans Spiesschaert <Frans.Spiesschaert@yucom.be>\n"
+"Language-Team: Debian Dutch l10n Team <debian-l10n-dutch@lists.debian.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid "Auto update lxc2 configuration format to lxc3?"
+msgstr "De lxc2-configuratie-indeling automatisch updaten naar lxc3?"
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid ""
+"LXC 3 comes with many changes for containers' configuration files. It also "
+"comes with a binary `/usr/bin/lxc-update-config` that allows one to update "
+"his configuration."
+msgstr ""
+"Met ingang van LXC 3 werden verschillende wijzigingen aangebracht aan de "
+"configuratiebestanden van containers. LXC 3 bevat ook een uitvoerbaar "
+"bestand `/usr/bin/lxc-update-config` waarmee men zijn configuratie kan "
+"updaten."
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid "This job can be done either automatically now or manually later."
+msgstr ""
+"Deze taak kan ofwel nu automatisch uitgevoerd worden of later handmatig "
+"gebeuren."
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid ""
+"Unpriviledged containers configurations will have to be updated manually "
+"either way via the `/usr/bin/lxc-update-config` command."
+msgstr ""
+"De configuraties van niet-geprivilegieerde containers zullen hoe dan ook "
+"manueel bijgewerkt moeten worden via het commando `/usr/bin/lxc-update-"
+"config`."

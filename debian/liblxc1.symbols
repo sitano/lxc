@@ -1,0 +1,715 @@
+liblxc.so.1 liblxc1 #MINVER#
+* Build-Depends-Package: lxc-dev
+#MISSING: 1:4.0.4# __cgfsng_delegate_controllers@Base 1:4.0.2
+#MISSING: 1:4.0.4# __criu_check_feature@Base 1:3.0.2
+#MISSING: 1:4.0.4# __criu_dump@Base 1:3.0.2
+#MISSING: 1:4.0.4# __criu_pre_dump@Base 1:3.0.2
+#MISSING: 1:4.0.4# __criu_restore@Base 1:3.0.2
+#MISSING: 1:4.0.4# __lxc_start@Base 1:3.0.2
+#MISSING: 1:4.0.4# __netlink_recv@Base 1:3.0.2
+#MISSING: 1:4.0.4# __netlink_send@Base 1:3.0.2
+#MISSING: 1:4.0.4# __netlink_transaction@Base 1:3.0.2
+ __safe_mount_beneath_at@Base 1:4.0.5
+#MISSING: 1:4.0.4# add_elem_to_mount_list@Base 1:4.0.2
+#MISSING: 1:4.0.4# add_required_remount_flags@Base 1:3.0.2
+#MISSING: 1:4.0.4# addattr@Base 1:3.0.2
+#MISSING: 1:4.0.4# append_unexp_config_line@Base 1:3.0.2
+#MISSING: 1:4.0.4# attach_block_device@Base 1:3.0.2
+#MISSING: 1:4.0.4# attach_nbd@Base 1:3.0.2
+#MISSING: 1:4.0.4# blk_getsize@Base 1:3.0.2
+#MISSING: 1:4.0.4# bpf_devices_cgroup_supported@Base 1:4.0.2
+#MISSING: 1:4.0.4# bpf_list_add_device@Base 1:4.0.2
+#MISSING: 1:4.0.4# bpf_program_append_device@Base 1:4.0.2
+#MISSING: 1:4.0.4# bpf_program_cgroup_attach@Base 1:4.0.2
+#MISSING: 1:4.0.4# bpf_program_cgroup_detach@Base 1:4.0.2
+#MISSING: 1:4.0.4# bpf_program_finalize@Base 1:4.0.2
+#MISSING: 1:4.0.4# bpf_program_free@Base 1:4.0.2
+#MISSING: 1:4.0.4# bpf_program_init@Base 1:4.0.2
+#MISSING: 1:4.0.4# bpf_program_new@Base 1:4.0.2
+#MISSING: 1:4.0.4# btrfs_clonepaths@Base 1:3.0.2
+#MISSING: 1:4.0.4# btrfs_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# btrfs_create_clone@Base 1:3.0.2
+#MISSING: 1:4.0.4# btrfs_create_snapshot@Base 1:3.0.2
+#MISSING: 1:4.0.4# btrfs_destroy@Base 1:3.0.2
+#MISSING: 1:4.0.4# btrfs_detect@Base 1:3.0.2
+#MISSING: 1:4.0.4# btrfs_list_get_path_rootid@Base 1:3.0.2
+#MISSING: 1:4.0.4# btrfs_mount@Base 1:3.0.2
+#MISSING: 1:4.0.4# btrfs_same_fs@Base 1:3.0.2
+#MISSING: 1:4.0.4# btrfs_snapshot@Base 1:3.0.2
+#MISSING: 1:4.0.4# btrfs_snapshot_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# btrfs_try_remove_subvol@Base 1:3.0.2
+#MISSING: 1:4.0.4# btrfs_umount@Base 1:3.0.2
+#MISSING: 1:4.0.4# cgfsng_devices_activate@Base 1:4.0.2
+#MISSING: 1:4.0.4# cgfsng_monitor_delegate_controllers@Base 1:4.0.2
+#MISSING: 1:4.0.4# cgfsng_ops_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# cgfsng_payload_delegate_controllers@Base 1:4.0.2
+#MISSING: 1:4.0.4# cgfsng_payload_finalize@Base 1:4.0.2
+#MISSING: 1:4.0.4# cgns_supported@Base 1:3.0.2
+#MISSING: 1:4.0.4# cgroup_attach@Base 1:4.0.2
+#MISSING: 1:4.0.4# cgroup_exit@Base 1:3.0.2
+#MISSING: 1:4.0.4# cgroup_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# choose_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# chown_mapped_root@Base 1:3.0.2
+#MISSING: 1:4.0.4# chown_mapped_root_exec_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# clear_unexp_config_line@Base 1:3.0.2
+#MISSING: 1:4.0.4# clone_update_unexp_hooks@Base 1:3.0.2
+#MISSING: 1:4.0.4# clone_update_unexp_ovl_paths@Base 1:3.0.2
+#MISSING: 1:4.0.4# config_ip_prefix@Base 1:3.0.2
+#MISSING: 1:4.0.4# container_disk_lock@Base 1:3.0.2
+#MISSING: 1:4.0.4# container_disk_unlock@Base 1:3.0.2
+#MISSING: 1:4.0.4# container_mem_lock@Base 1:3.0.2
+#MISSING: 1:4.0.4# container_mem_unlock@Base 1:3.0.2
+ current_config@Base 1:3.0.2
+#MISSING: 1:4.0.4# detach_block_device@Base 1:3.0.2
+#MISSING: 1:4.0.4# detach_nbd_idx@Base 1:3.0.2
+#MISSING: 1:4.0.4# detect_fs@Base 1:3.0.2
+#MISSING: 1:4.0.4# detect_ramfs_rootfs@Base 1:3.0.2
+#MISSING: 1:4.0.4# detect_shared_rootfs@Base 1:3.0.2
+#MISSING: 1:4.0.4# dir_clonepaths@Base 1:3.0.2
+#MISSING: 1:4.0.4# dir_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# dir_destroy@Base 1:3.0.2
+#MISSING: 1:4.0.4# dir_detect@Base 1:3.0.2
+#MISSING: 1:4.0.4# dir_exists@Base 1:3.0.2
+#MISSING: 1:4.0.4# dir_mount@Base 1:3.0.2
+#MISSING: 1:3.0.4# dir_new_path@Base 1:3.0.2
+#MISSING: 1:4.0.4# dir_umount@Base 1:3.0.2
+#MISSING: 1:4.0.4# do_append_unexp_config_line@Base 1:3.0.2
+#MISSING: 1:4.0.4# do_mkfs_exec_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# do_resolve_add_rule@Base 1:3.0.2
+#MISSING: 1:4.0.4# fd_cloexec@Base 1:3.0.2
+#MISSING: 1:4.0.4# fd_to_buf@Base 1:4.0.2
+#MISSING: 1:4.0.4# fd_to_fd@Base 1:3.0.4
+#MISSING: 1:4.0.4# fdopen_cached@Base 1:4.0.2
+#MISSING: 1:4.0.4# fhas_fs_type@Base 1:3.0.2
+#MISSING: 1:4.0.4# file_exists@Base 1:3.0.2
+#MISSING: 1:4.0.4# file_to_buf@Base 1:3.0.3
+#MISSING: 1:4.0.4# find_fstype_cb@Base 1:3.0.2
+#MISSING: 1:4.0.4# find_unmapped_nsid@Base 1:3.0.2
+#MISSING: 1:4.0.4# fix_stdio_permissions@Base 1:4.0.2
+#MISSING: 1:4.0.4# fnv_64a_buf@Base 1:3.0.2
+#MISSING: 1:4.0.4# fopen_cached@Base 1:4.0.2
+#MISSING: 1:4.0.4# fopen_cloexec@Base 1:3.0.2
+#MISSING: 1:4.0.4# get_btrfs_subvol_path@Base 1:3.0.2
+#MISSING: 1:4.0.4# get_cgroup_version@Base 1:3.0.2
+#MISSING: 1:4.0.4# get_fssize@Base 1:3.0.3
+#MISSING: 1:4.0.4# get_hierarchy@Base 1:3.0.2
+#MISSING: 1:4.0.4# get_hostarch@Base 1:3.0.2
+#MISSING: 1:4.0.2# get_mapped_rootid@Base 1:3.0.2
+#MISSING: 1:4.0.2# get_minimal_idmap@Base 1:3.0.2
+#MISSING: 1:4.0.4# get_new_ctx@Base 1:3.0.2
+#MISSING: 1:4.0.4# get_ns_gid@Base 1:3.0.3
+#MISSING: 1:4.0.4# get_ns_uid@Base 1:3.0.2
+#MISSING: 1:4.0.4# get_rundir@Base 1:3.0.2
+#MISSING: 1:4.0.4# get_template_path@Base 1:3.0.2
+#MISSING: 1:4.0.4# get_u16@Base 1:3.0.2
+#MISSING: 1:4.0.4# has_fs_type@Base 1:3.0.2
+#MISSING: 1:4.0.4# id128_to_uuid_string@Base 1:3.0.4
+#MISSING: 1:4.0.4# in_caplist@Base 1:3.0.2
+#MISSING: 1:4.0.4# is_blktype@Base 1:3.0.2
+#MISSING: 1:4.0.4# is_btrfs_fs@Base 1:3.0.2
+#MISSING: 1:4.0.4# is_btrfs_subvol@Base 1:3.0.2
+#MISSING: 1:4.0.4# is_cgroupfs_v1@Base 1:3.0.2
+#MISSING: 1:4.0.4# is_cgroupfs_v2@Base 1:3.0.2
+#MISSING: 1:4.0.4# is_dir@Base 1:3.0.2
+#MISSING: 1:4.0.4# is_fs_type@Base 1:3.0.2
+#MISSING: 1:4.0.4# is_ovs_bridge@Base 1:3.0.2
+#MISSING: 1:4.0.4# is_shared_mountpoint@Base 1:4.0.2
+#MISSING: 1:4.0.4# is_valid_storage_type@Base 1:3.0.2
+#MISSING: 1:4.0.4# is_wlan@Base 1:4.0.2
+#MISSING: 1:4.0.4# linkderef@Base 1:3.0.2
+ list_active_containers@Base 1:3.0.2
+ list_all_containers@Base 1:3.0.2
+ list_defined_containers@Base 1:3.0.2
+#MISSING: 1:4.0.4# loop_clonepaths@Base 1:3.0.2
+#MISSING: 1:4.0.4# loop_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# loop_destroy@Base 1:3.0.2
+#MISSING: 1:4.0.4# loop_detect@Base 1:3.0.2
+#MISSING: 1:4.0.4# loop_mount@Base 1:3.0.2
+#MISSING: 1:4.0.4# loop_umount@Base 1:3.0.2
+#MISSING: 1:4.0.4# lsm_apparmor_drv_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# lsm_enabled@Base 1:3.0.2
+#MISSING: 1:4.0.4# lsm_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# lsm_keyring_label_set@Base 1:4.0.2
+#MISSING: 1:4.0.4# lsm_name@Base 1:3.0.2
+#MISSING: 1:4.0.4# lsm_nop_drv_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# lsm_process_cleanup@Base 1:3.0.3
+#MISSING: 1:4.0.4# lsm_process_label_fd_get@Base 1:3.0.2
+#MISSING: 1:4.0.4# lsm_process_label_get@Base 1:3.0.2
+#MISSING: 1:4.0.4# lsm_process_label_set@Base 1:3.0.2
+#MISSING: 1:4.0.4# lsm_process_label_set_at@Base 1:3.0.2
+#MISSING: 1:4.0.4# lsm_process_prepare@Base 1:3.0.3
+#MISSING: 1:4.0.4# lsm_selinux_drv_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# lvm_clonepaths@Base 1:3.0.2
+#MISSING: 1:4.0.4# lvm_compare_lv_attr@Base 1:3.0.2
+#MISSING: 1:4.0.4# lvm_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# lvm_create_clone@Base 1:3.0.2
+#MISSING: 1:4.0.4# lvm_create_snapshot@Base 1:3.0.2
+#MISSING: 1:4.0.4# lvm_destroy@Base 1:3.0.2
+#MISSING: 1:4.0.4# lvm_detect@Base 1:3.0.2
+#MISSING: 1:4.0.4# lvm_is_thin_pool@Base 1:3.0.2
+#MISSING: 1:4.0.4# lvm_is_thin_volume@Base 1:3.0.2
+#MISSING: 1:4.0.4# lvm_mount@Base 1:3.0.2
+#MISSING: 1:4.0.4# lvm_umount@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_abort@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_abstract_unix_close@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_abstract_unix_connect@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_abstract_unix_open@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_abstract_unix_rcv_credential@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_abstract_unix_recv_fds@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_abstract_unix_send_credential@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_abstract_unix_send_fds@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_abstract_unix_send_fds_iov@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_add_state_client@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_allocate_ttys@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_ambient_caps_down@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_ambient_caps_up@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_append_null_to_array@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_append_paths@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_append_string@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_array_len@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_attach@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_attach_remount_sys_proc@Base 1:4.0.2
+ lxc_attach_run_command@Base 1:3.0.2
+ lxc_attach_run_shell@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_bridge_attach@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_can_use_pidfd@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_caps_down@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_caps_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_caps_last_cap@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_caps_up@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_char_left_gc@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_char_right_gc@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_check_inherited@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_chroot@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clear_apparmor_raw@Base 1:3.0.3
+#MISSING: 1:4.0.4# lxc_clear_automounts@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clear_cgroup2_devices@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_clear_cgroups@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clear_config_caps@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clear_config_keepcaps@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clear_environment@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clear_groups@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clear_hooks@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clear_idmaps@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clear_includes@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clear_limits@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clear_mount_entries@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clear_namespace@Base 1:3.0.4
+#MISSING: 1:4.0.4# lxc_clear_procs@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clear_sysctls@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_clone@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_add_bpf_device_cgroup@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_cmd_add_state_client@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_connect@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_console@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_console_log@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_freeze@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_cmd_get_cgroup2_fd@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_cmd_get_cgroup_path@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_get_clone_flags@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_get_config_item@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_get_init_pid@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_get_init_pidfd@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_cmd_get_lxcpath@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_get_name@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_get_state@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_mainloop_add@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_seccomp_notify_add_listener@Base 1:3.0.4
+#MISSING: 1:4.0.4# lxc_cmd_serve_state_clients@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_sock_get_state@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_sock_rcv_state@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_stop@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_terminal_winch@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_cmd_unfreeze@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_conf_free@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_conf_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_config_define_add@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_config_define_free@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_config_define_load@Base 1:3.0.2
+ lxc_config_item_is_supported@Base 1:3.0.2
+#MISSING: 1:3.0.4# lxc_config_net_hwaddr@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_config_net_is_hwaddr@Base 1:3.0.4
+#MISSING: 1:4.0.4# lxc_config_parse_arch@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_config_read@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_config_value_empty@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_console@Base 1:3.0.2
+ lxc_container_get@Base 1:3.0.2
+ lxc_container_new@Base 1:3.0.2
+ lxc_container_put@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_convert_mac@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_count_file_lines@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_create_network@Base 1:4.0.2
+#MISSING: 1:4.0.2# lxc_create_network_priv@Base 1:3.0.2
+#MISSING: 1:4.0.2# lxc_create_network_unpriv@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_create_tmp_proc_mount@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_delete_network@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_delete_network_priv@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_delete_network_unpriv@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_delete_tty@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_deslashify@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_end@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_error_set_and_log@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_execute@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_file_cap_is_set@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_file_for_each_line@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_file_for_each_line_mmap@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_fill_elevated_privileges@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_fill_namespace_flags@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_find_gateway_addresses@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_find_next_power2@Base 1:3.0.2
+#MISSING: 1:4.0.2# lxc_fini@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_free_array@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_free_handler@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_free_networks@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_freeze@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_get_conf_bool@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_get_conf_int@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_get_conf_size_t@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_get_conf_str@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_get_conf_uint64@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_get_config@Base 1:3.0.2
+ lxc_get_global_config_item@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_get_netdev_by_idx@Base 1:3.0.2
+ lxc_get_version@Base 1:3.0.2
+ lxc_get_wait_states@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_getstate@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_global_config_value@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_grow_array@Base 1:3.0.2
+ lxc_has_api_extension@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_id128_randomize@Base 1:3.0.4
+#MISSING: 1:4.0.4# lxc_id128_write@Base 1:3.0.4
+#MISSING: 1:4.0.4# lxc_id128_write_fd@Base 1:3.0.4
+#MISSING: 1:4.0.4# lxc_ifname_alnum_case_sensitive@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_inherit_namespace@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_init_handler@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_ip_forwarding_off@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_ip_forwarding_on@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_ipv4_addr_add@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_ipv4_addr_get@Base 1:3.0.2
+#MISSING: 1:4.0.2# lxc_ipv4_dest_add@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_ipv4_gateway_add@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_ipv6_addr_add@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_ipv6_addr_get@Base 1:3.0.2
+#MISSING: 1:4.0.2# lxc_ipv6_dest_add@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_ipv6_gateway_add@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_ipvlan_flag_to_isolation@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_ipvlan_flag_to_mode@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_ipvlan_isolation_to_flag@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_ipvlan_mode_to_flag@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_is_line_empty@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_list_config_items@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_list_net@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_list_subkeys@Base 1:3.0.2
+ lxc_log_category_af_unix@Base 1:3.0.2
+ lxc_log_category_apparmor@Base 1:3.0.2
+ lxc_log_category_attach@Base 1:3.0.2
+ lxc_log_category_btrfs@Base 1:3.0.2
+ lxc_log_category_caps@Base 1:3.0.2
+ lxc_log_category_cgfsng@Base 1:3.0.2
+ lxc_log_category_cgroup2_devices@Base 1:4.0.2
+ lxc_log_category_cgroup@Base 1:3.0.2
+ lxc_log_category_cgroup_utils@Base 1:4.0.10-1
+ lxc_log_category_commands@Base 1:3.0.2
+ lxc_log_category_commands_utils@Base 1:3.0.2
+ lxc_log_category_conf@Base 1:3.0.2
+ lxc_log_category_confile@Base 1:3.0.2
+ lxc_log_category_confile_utils@Base 1:3.0.2
+ lxc_log_category_criu@Base 1:3.0.2
+ lxc_log_category_dir@Base 1:3.0.2
+ lxc_log_category_error@Base 1:3.0.2
+ lxc_log_category_execute@Base 1:3.0.2
+ lxc_log_category_freezer@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_log_category_initutils@Base 1:3.0.2
+ lxc_log_category_log@Base 1:3.0.2
+ lxc_log_category_loop@Base 1:3.0.2
+ lxc_log_category_lsm@Base 1:3.0.2
+ lxc_log_category_lvm@Base 1:3.0.2
+ lxc_log_category_lxc@Base 1:3.0.2
+ lxc_log_category_lxccontainer@Base 1:3.0.2
+ lxc_log_category_lxclock@Base 1:3.0.2
+ lxc_log_category_mainloop@Base 1:4.0.11
+ lxc_log_category_monitor@Base 1:3.0.2
+ lxc_log_category_mount_utils@Base 1:4.0.4
+ lxc_log_category_namespace@Base 1:3.0.2
+ lxc_log_category_nbd@Base 1:3.0.2
+ lxc_log_category_network@Base 1:3.0.2
+ lxc_log_category_nl@Base 1:3.0.3
+ lxc_log_category_overlay@Base 1:3.0.2
+ lxc_log_category_parse@Base 1:3.0.2
+ lxc_log_category_process_utils@Base 1:4.0.4
+ lxc_log_category_rbd@Base 1:3.0.2
+ lxc_log_category_rsync@Base 1:3.0.2
+ lxc_log_category_seccomp@Base 1:3.0.2
+ lxc_log_category_selinux@Base 1:3.0.2
+ lxc_log_category_start@Base 1:3.0.2
+ lxc_log_category_state@Base 1:3.0.2
+ lxc_log_category_storage@Base 1:3.0.2
+ lxc_log_category_storage_utils@Base 1:3.0.2
+ lxc_log_category_sync@Base 1:3.0.2
+ lxc_log_category_terminal@Base 1:3.0.2
+ lxc_log_category_utils@Base 1:3.0.2
+ lxc_log_category_zfs@Base 1:3.0.2
+ lxc_log_close@Base 1:3.0.2
+ lxc_log_configured_netdevs@Base 1:3.0.2
+ lxc_log_enable_syslog@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_log_configured_netdevs@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_log_enable_syslog@Base 1:3.0.2
+  lxc_log_fd@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_log_get_file@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_log_get_level@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_log_get_prefix@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_log_has_valid_level@Base 1:3.0.2
+  lxc_log_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_log_options_no_override@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_log_set_file@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_log_set_level@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_log_set_prefix@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_log_syslog@Base 1:3.0.2
+  lxc_log_use_global_fd@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_macvlan_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_macvlan_flag_to_mode@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_macvlan_mode_to_flag@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_mainloop@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_mainloop_add_handler@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_mainloop_close@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_mainloop_del_handler@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_mainloop_open@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_make_abstract_socket_name@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_make_controlling_terminal@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_make_tmpfile@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_map_ids@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_map_ids_exec_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.2# lxc_mkifname@Base 1:3.0.2
+#MISSING: 1:4.0.11# lxc_monitor_close@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_monitor_fifo_name@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_monitor_open@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_monitor_read@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_monitor_read_fdset@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_monitor_read_timeout@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_monitor_send_exit_code@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_monitor_send_state@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_monitor_sock_name@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_monitord_spawn@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_mount_proc_if_needed@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_namespace_2_cloneflag@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_namespace_2_ns_idx@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_namespace_2_std_identifiers@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_neigh_proxy_off@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_neigh_proxy_on@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_net_type_to_str@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_netdev_delete_by_index@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_netdev_delete_by_name@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_netdev_down@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_netdev_isup@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_netdev_move_by_index@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_netdev_move_by_name@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_netdev_move_wlan@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_netdev_rename_by_index@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_netdev_rename_by_name@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_netdev_set_mtu@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_netdev_up@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_netns_get_nsid@Base 1:3.0.3
+#MISSING: 1:4.0.4# lxc_netns_set_nsid@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_network_add@Base 1:3.0.2
+ lxc_network_info@Base 1:4.0.10-1
+#MISSING: 1:4.0.4# lxc_network_move_created_netdev_priv@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_network_recv_from_parent@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_network_recv_name_and_ifindex_from_child@Base 1:3.0.2
+#MISSING: 1:4.0.2# lxc_network_recv_veth_names_from_parent@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_network_send_name_and_ifindex_to_parent@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_network_send_to_child@Base 1:4.0.2
+#MISSING: 1:4.0.2# lxc_network_send_veth_names_to_child@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_newlock@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_nic_exists@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_normalize_path@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_open_dirfd@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_ovs_delete_port@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_pclose@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_poll@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_popen@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_prepare_loop_dev@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_preserve_ns@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_proc_cap_is_set@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_putlock@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_pwrite_nointr@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_quiet_specified@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_raw_clone@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_raw_clone_cb@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_raw_execveat@Base 1:3.0.3
+#MISSING: 1:4.0.4# lxc_raw_pidfd_send_signal@Base 1:3.0.4
+#MISSING: 1:4.0.4# lxc_read_file_expect@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_read_from_file@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_read_nointr@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_read_nointr_expect@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_read_seccomp_config@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_readat@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_recv_nointr@Base 1:3.0.3
+#MISSING: 1:4.0.4# lxc_recvmsg_nointr_iov@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_remove_nic_by_idx@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_requests_empty_network@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_restore_phys_nics_to_netns@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_rexec@Base 1:3.0.3
+#MISSING: 1:4.0.4# lxc_ringbuf_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_ringbuf_move_read_addr@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_ringbuf_read@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_ringbuf_write@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_rm_rf@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_rmdir_onedev@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_rsync@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_rsync_exec@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_rsync_exec_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_safe_int@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_safe_long@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_safe_long_long@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_safe_uint64@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_safe_uint@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_safe_ulong@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_seccomp_add_notifier@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_seccomp_free@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_seccomp_load@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_seccomp_recv_notifier_fd@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_seccomp_send_notifier_fd@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_seccomp_setup_proxy@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_send_nointr@Base 1:3.0.3
+#MISSING: 1:4.0.4# lxc_sendfile_nointr@Base 1:3.0.3
+#MISSING: 1:4.0.4# lxc_serve_state_clients@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_set_config_item_locked@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_set_death_signal@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_set_state@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_setgroups@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_setup@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_setup_keyring@Base 1:3.0.3
+#MISSING: 1:4.0.4# lxc_setup_network_in_child_namespaces@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_setup_rootfs_prepare_root@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_setup_tios@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_socket_set_timeout@Base 1:3.0.4
+#MISSING: 1:4.0.4# lxc_start@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_state2str@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_storage_get_path@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_storage_rsync_exec_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_str2state@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_string_in_array@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_string_in_list@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_string_join@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_string_replace@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_string_split@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_string_split_and_trim@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_string_split_quoted@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_strmmap@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_strmunmap@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_switch_uid_gid@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_sync_barrier_child@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_sync_barrier_parent@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_sync_fini@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_sync_fini_child@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_sync_fini_parent@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_sync_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_sync_wait_child@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_sync_wait_parent@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_sync_wake_child@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_sync_wake_parent@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_allocate@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_conf_free@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_create_log_file@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_delete@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_free@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_getfd@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_info_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_init@Base 1:3.0.2
+#MISSING: 1:3.0.4# lxc_terminal_init_global@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_io_cb@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_mainloop_add@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_map_ids@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_master_cb@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_prepare_login@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_set_stdfds@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_setup@Base 1:3.0.2
+#MISSING: 1:4.0.2# lxc_terminal_signal_fini@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_signal_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_signalfd_cb@Base 1:3.0.2
+#MISSING: 1:3.0.4# lxc_terminal_sigwinch@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_stdin_cb@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_winsz@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_terminal_write_ringbuffer@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_trim_whitespace_in_place@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_try_cmd@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_unfreeze@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_unix_connect@Base 1:3.0.4
+#MISSING: 1:4.0.4# lxc_unix_connect_type@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_unix_send_fds@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_unix_sockaddr@Base 1:3.0.4
+#MISSING: 1:4.0.4# lxc_unstack_mountpoint@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_va_arg_list_to_argv@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_va_arg_list_to_argv_const@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_veth_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_veth_mode_to_flag@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_vlan_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_wait@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_wait_for_pid_status@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_write_nointr@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_write_openat@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_write_to_file@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxc_writeat@Base 1:4.0.2
+#MISSING: 1:4.0.4# lxc_zero_handler@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxchook_names@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxclock@Base 1:3.0.2
+#MISSING: 1:4.0.4# lxcunlock@Base 1:3.0.2
+#MISSING: 1:4.0.4# make_anonymous_mount_file@Base 1:3.0.2
+#MISSING: 1:4.0.4# mapped_hostid@Base 1:3.0.2
+#MISSING: 1:4.0.4# mkdir_p@Base 1:3.0.2
+ mod_all_rdeps@Base 1:3.0.2
+#MISSING: 1:4.0.4# mount_unknown_fs@Base 1:3.0.2
+#MISSING: 1:4.0.4# must_append_path@Base 1:3.0.2
+#MISSING: 1:4.0.4# must_concat@Base 1:3.0.2
+#MISSING: 1:4.0.4# must_copy_string@Base 1:3.0.2
+#MISSING: 1:4.0.4# must_make_path@Base 1:3.0.2
+#MISSING: 1:4.0.4# must_realloc@Base 1:3.0.2
+#MISSING: 1:4.0.4# nbd_clonepaths@Base 1:3.0.2
+#MISSING: 1:4.0.4# nbd_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# nbd_destroy@Base 1:3.0.2
+#MISSING: 1:4.0.4# nbd_detect@Base 1:3.0.2
+#MISSING: 1:4.0.4# nbd_mount@Base 1:3.0.2
+#MISSING: 1:4.0.4# nbd_ops@Base 1:3.0.2
+#MISSING: 1:4.0.4# nbd_umount@Base 1:3.0.2
+#MISSING: 1:4.0.4# netdev_get_flag@Base 1:3.0.2
+#MISSING: 1:4.0.4# netdev_get_mtu@Base 1:3.0.2
+#MISSING: 1:4.0.4# netdev_set_flag@Base 1:3.0.2
+#MISSING: 1:4.0.4# netlink_close@Base 1:3.0.2
+#MISSING: 1:4.0.4# netlink_open@Base 1:3.0.2
+#MISSING: 1:4.0.4# netlink_rcv@Base 1:3.0.2
+#MISSING: 1:4.0.4# netlink_send@Base 1:3.0.2
+#MISSING: 1:4.0.4# netlink_transaction@Base 1:3.0.2
+#MISSING: 1:4.0.4# netns_freeifaddrs@Base 1:3.0.3
+#MISSING: 1:4.0.4# netns_getifaddrs@Base 1:3.0.3
+#MISSING: 1:4.0.4# network_ifname@Base 1:3.0.2
+#MISSING: 1:4.0.4# network_new_hwaddrs@Base 1:3.0.2
+#MISSING: 1:4.0.4# new_hwaddr@Base 1:3.0.2
+#MISSING: 1:4.0.4# nla_begin_nested@Base 1:3.0.2
+#MISSING: 1:4.0.4# nla_end_nested@Base 1:3.0.2
+#MISSING: 1:4.0.4# nla_put_attr@Base 1:3.0.2
+#MISSING: 1:4.0.4# nla_put_buffer@Base 1:3.0.2
+#MISSING: 1:4.0.4# nla_put_string@Base 1:3.0.2
+#MISSING: 1:4.0.4# nla_put_u16@Base 1:3.0.2
+#MISSING: 1:4.0.4# nla_put_u32@Base 1:3.0.2
+#MISSING: 1:4.0.4# nlmsg_alloc@Base 1:3.0.2
+#MISSING: 1:4.0.4# nlmsg_alloc_reserve@Base 1:3.0.2
+#MISSING: 1:4.0.4# nlmsg_data@Base 1:3.0.2
+#MISSING: 1:4.0.4# nlmsg_free@Base 1:3.0.2
+#MISSING: 1:4.0.4# nlmsg_len@Base 1:3.0.2
+#MISSING: 1:4.0.4# nlmsg_reserve@Base 1:3.0.2
+#MISSING: 1:4.0.4# ns_info@Base 1:3.0.2
+#MISSING: 1:4.0.4# null_stdfds@Base 1:3.0.2
+#MISSING: 1:4.0.4# on_path@Base 1:3.0.2
+#MISSING: 1:4.0.4# open_devnull@Base 1:3.0.2
+#MISSING: 1:4.0.4# ovl_clonepaths@Base 1:3.0.2
+#MISSING: 1:4.0.4# ovl_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# ovl_destroy@Base 1:3.0.2
+#MISSING: 1:4.0.4# ovl_detect@Base 1:3.0.2
+#MISSING: 1:4.0.4# ovl_get_lower@Base 1:3.0.2
+#MISSING: 1:4.0.4# ovl_get_rootfs@Base 1:3.0.2
+#MISSING: 1:4.0.4# ovl_mkdir@Base 1:3.0.2
+#MISSING: 1:4.0.4# ovl_mount@Base 1:3.0.2
+#MISSING: 1:4.0.4# ovl_umount@Base 1:3.0.2
+#MISSING: 1:4.0.4# ovl_update_abs_paths@Base 1:3.0.2
+#MISSING: 1:4.0.4# parse_byte_size_string@Base 1:3.0.2
+#MISSING: 1:4.0.4# parse_idmaps@Base 1:3.0.2
+#MISSING: 1:3.0.4# parse_limit_value@Base 1:3.0.2
+#MISSING: 1:4.0.4# parse_mntopts@Base 1:3.0.2
+#MISSING: 1:4.0.4# parse_propagationopts@Base 1:3.0.2
+#MISSING: 1:4.0.4# pin_rootfs@Base 1:3.0.2
+#MISSING: 1:4.0.4# print_to_file@Base 1:3.0.2
+#MISSING: 1:4.0.4# process_lock@Base 1:3.0.2
+#MISSING: 1:4.0.4# process_unlock@Base 1:3.0.2
+#MISSING: 1:4.0.4# prune_init_scope@Base 1:3.0.2
+#MISSING: 1:4.0.4# rand_complete_hwaddr@Base 1:3.0.2
+#MISSING: 1:4.0.4# randseed@Base 1:3.0.2
+#MISSING: 1:4.0.4# rbd_clonepaths@Base 1:3.0.2
+#MISSING: 1:4.0.4# rbd_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# rbd_create_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# rbd_delete_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# rbd_destroy@Base 1:3.0.2
+#MISSING: 1:4.0.4# rbd_detect@Base 1:3.0.2
+#MISSING: 1:4.0.4# rbd_map_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# rbd_mount@Base 1:3.0.2
+#MISSING: 1:4.0.4# rbd_umount@Base 1:3.0.2
+#MISSING: 1:4.0.4# rbd_unmap_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.2# recursive_destroy@Base 1:3.0.2
+#MISSING: 1:4.0.4# remount_all_slave@Base 1:3.0.2
+#MISSING: 1:4.0.4# remove_trailing_newlines@Base 1:3.0.2
+#MISSING: 1:4.0.4# remove_trailing_slashes@Base 1:3.0.2
+#MISSING: 1:4.0.4# requires_nbd@Base 1:3.0.2
+#MISSING: 1:4.0.4# resolve_clone_flags@Base 1:3.0.2
+#MISSING: 1:4.0.4# rootfs_is_blockdev@Base 1:3.0.2
+#MISSING: 1:4.0.4# rtnetlink_close@Base 1:3.0.2
+#MISSING: 1:4.0.4# rtnetlink_open@Base 1:3.0.2
+#MISSING: 1:4.0.4# rtnetlink_rcv@Base 1:3.0.2
+#MISSING: 1:4.0.4# rtnetlink_send@Base 1:3.0.2
+#MISSING: 1:4.0.4# rtnetlink_transaction@Base 1:3.0.2
+#MISSING: 1:4.0.4# rtnlmsg_alloc@Base 1:3.0.2
+#MISSING: 1:4.0.4# rtnlmsg_free@Base 1:3.0.2
+#MISSING: 1:4.0.4# run_command@Base 1:3.0.2
+#MISSING: 1:4.0.4# run_command_internal@Base 1:3.0.4
+#MISSING: 1:4.0.4# run_command_status@Base 1:3.0.4
+#MISSING: 1:4.0.4# run_lxc_hooks@Base 1:3.0.2
+#MISSING: 1:4.0.4# run_script@Base 1:3.0.2
+#MISSING: 1:4.0.4# run_script_argv@Base 1:3.0.2
+#MISSING: 1:4.0.4# safe_mount@Base 1:3.0.2
+#MISSING: 1:4.0.4# seccomp_conf_init@Base 1:4.0.2
+#MISSING: 1:4.0.4# seccomp_notify_handler@Base 1:4.0.2
+#MISSING: 1:4.0.4# set_config_bool_item@Base 1:4.0.2
+#MISSING: 1:4.0.4# set_config_path_item@Base 1:3.0.2
+#MISSING: 1:4.0.4# set_config_string_item@Base 1:3.0.2
+#MISSING: 1:4.0.4# set_config_string_item_max@Base 1:3.0.2
+#MISSING: 1:4.0.4# set_stdfds@Base 1:3.0.2
+#MISSING: 1:4.0.4# setproctitle@Base 1:3.0.2
+#MISSING: 1:4.0.4# setup_private_host_hw_addr@Base 1:3.0.2
+#MISSING: 1:4.0.4# setup_proc_filesystem@Base 1:3.0.2
+#MISSING: 1:4.0.4# setup_resource_limits@Base 1:3.0.2
+#MISSING: 1:4.0.4# setup_sysctl_parameters@Base 1:3.0.2
+#MISSING: 1:4.0.4# should_default_to_snapshot@Base 1:3.0.2
+#MISSING: 1:4.0.4# sig_parse@Base 1:3.0.2
+#MISSING: 1:4.0.4# sort_cgroup_settings@Base 1:3.0.2
+#MISSING: 1:4.0.4# storage_can_backup@Base 1:3.0.2
+#MISSING: 1:4.0.4# storage_copy@Base 1:3.0.2
+#MISSING: 1:4.0.4# storage_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# storage_destroy@Base 1:3.0.2
+#MISSING: 1:4.0.4# storage_destroy_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# storage_get@Base 1:3.0.2
+#MISSING: 1:4.0.4# storage_init@Base 1:3.0.2
+#MISSING: 1:4.0.4# storage_is_dir@Base 1:3.0.2
+#MISSING: 1:4.0.4# storage_put@Base 1:3.0.2
+#MISSING: 1:4.0.11# strlcat@Base 1:3.0.2
+#MISSING: 1:4.0.11# strlcpy@Base 1:3.0.2
+#MISSING: 1:4.0.4# suggest_default_idmap@Base 1:3.0.2
+#MISSING: 1:4.0.4# switch_to_ns@Base 1:3.0.2
+#MISSING: 1:4.0.4# task_blocks_signal@Base 1:3.0.2
+#MISSING: 1:4.0.4# test_writeable_v1@Base 1:3.0.2
+#MISSING: 1:4.0.4# test_writeable_v2@Base 1:3.0.2
+#MISSING: 1:4.0.4# tmp_proc_unmount@Base 1:3.0.2
+#MISSING: 1:4.0.4# unified_cgroup_hierarchy@Base 1:4.0.2
+#MISSING: 1:4.0.4# unpriv_snap_allowed@Base 1:3.0.2
+#MISSING: 1:3.0.4# update_hwaddr@Base 1:3.0.2
+#MISSING: 1:4.0.4# userns_exec_1@Base 1:3.0.2
+#MISSING: 1:4.0.4# userns_exec_full@Base 1:3.0.2
+#MISSING: 1:4.0.4# userns_exec_minimal@Base 1:4.0.2
+#MISSING: 1:4.0.4# wait_for_pid@Base 1:3.0.2
+#MISSING: 1:4.0.4# wait_for_pidfd@Base 1:4.0.2
+#MISSING: 1:4.0.4# write_config@Base 1:3.0.2
+#MISSING: 1:4.0.4# write_id_mapping@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_clone_exec_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_clonepaths@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_copy@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_create@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_create_exec_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_delete_exec_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_destroy@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_detect@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_detect_exec_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_get_parent_snapshot_exec_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_mount@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_snapshot@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_snapshot_exec_wrapper@Base 1:3.0.2
+#MISSING: 1:4.0.4# zfs_umount@Base 1:3.0.2

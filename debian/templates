@@ -1,0 +1,11 @@
+Template: lxc/auto_update_config
+Type: boolean
+_Description: Auto update lxc2 configuration format to lxc3?
+ LXC 3 comes with many changes for containers' configuration files.
+ It also comes with a binary `/usr/bin/lxc-update-config` that allows
+ one to update his configuration.
+ .
+ This job can be done either automatically now or manually later.
+ .
+ Unpriviledged containers configurations will have to be updated manually
+ either way via the `/usr/bin/lxc-update-config` command.

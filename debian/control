@@ -1,0 +1,127 @@
+Source: lxc
+Section: admin
+Priority: optional
+Maintainer: pkg-lxc <pkg-lxc-devel@lists.alioth.debian.org>
+Uploaders: Antonio Terceiro <terceiro@debian.org>,
+           Evgeni Golov <evgeni@debian.org>,
+           Pierre-Elliott Bécue <peb@debian.org>
+Build-Depends: bash-completion,
+               debhelper-compat (= 12),
+               dh-apparmor,
+               dh-exec,
+               docbook2x,
+               doxygen,
+               graphviz,
+               libapparmor-dev,
+               libcap-dev,
+               libgnutls28-dev,
+               liblua5.2-dev,
+               libpam0g-dev,
+               libseccomp-dev [!alpha !hppa !m68k !sh4 !sparc64],
+               libselinux-dev,
+               linux-libc-dev,
+               pkg-config
+Standards-Version: 4.5.0
+Homepage: https://linuxcontainers.org/
+Vcs-Git: https://salsa.debian.org/lxc-team/lxc.git
+Vcs-Browser: https://salsa.debian.org/lxc-team/lxc
+
+Package: lxc
+Architecture: linux-any
+Pre-Depends: ${misc:Pre-Depends}
+Depends: liblxc1 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends},
+         lsb-base (>= 3.0-6),
+         bridge-utils,
+         dnsmasq-base,
+         iptables,
+         iproute2,
+Recommends: apparmor,
+            debootstrap,
+            dirmngr,
+            gnupg,
+            libpam-cgfs,
+            lxcfs (>= 3.0.2-1),
+            lxc-templates (>= 3.0.2-1),
+            openssl,
+            rsync,
+            uidmap,
+            wget,
+Suggests: btrfs-progs, lvm2, python3-lxc
+Description: Linux Containers userspace tools
+ Containers are insulated areas inside a system, which have their own namespace
+ for filesystem, network, PID, IPC, CPU and memory allocation and which can be
+ created using the Control Group and Namespace features included in the Linux
+ kernel.
+ .
+ This package provides the lxc-* tools, which can be used to start a single
+ daemon in a container, or to boot an entire "containerized" system, and to
+ manage and debug your containers.
+
+Package: lxc-dev
+Section: libdevel
+Architecture: linux-any
+Depends: liblxc1 (= ${binary:Version}),
+         lxc (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Breaks: lxc (<< 1:3.0.2-1~exp+1)
+Description: Linux Containers userspace tools (development)
+ Containers are insulated areas inside a system, which have their own namespace
+ for filesystem, network, PID, IPC, CPU and memory allocation and which can be
+ created using the Control Group and Namespace features included in the Linux
+ kernel.
+ .
+ This package contains the development files.
+
+Package: lxc-tests
+Architecture: linux-any
+Depends: liblxc1 (= ${binary:Version}),
+         lxc (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Replaces: lxc-dev (<< 1:3.0.2-1~exp+1)
+Breaks: lxc-dev (<< 1:3.0.2-1~exp+1)
+Description: Linux Containers userspace tools (test binaries)
+ Containers are insulated areas inside a system, which have their own namespace
+ for filesystem, network, PID, IPC, CPU and memory allocation and which can be
+ created using the Control Group and Namespace features included in the Linux
+ kernel.
+ .
+ This package contains the test binaries. Those binaries are primarily
+ used for autopkgtest and by some developers. They are not meant to be
+ installed on regular user systems.
+
+Package: liblxc1
+Section: libs
+Architecture: linux-any
+Multi-Arch: same
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Breaks: lxc (<< 1:3.0.2-1~exp+1)
+Suggests: cgroupfs-mount | systemd
+Description: Linux Containers userspace tools (library)
+ Containers are insulated areas inside a system, which have their own namespace
+ for filesystem, network, PID, IPC, CPU and memory allocation and which can be
+ created using the Control Group and Namespace features included in the Linux
+ kernel.
+ .
+ This package contains the shared library.
+
+Package: libpam-cgfs
+Architecture: linux-any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: libpam-runtime (>= 1.0.1-6),
+         ${lxcfs:Depends},
+         ${misc:Depends},
+         ${shlibs:Depends}
+Conflicts: libpam-cgm
+Description: PAM module for managing cgroups for LXC
+ LXCFS provides a FUSE based filesystem to improve the LXC experience
+ within the containers.
+ .
+ This provides a Pluggable Authentication Module (PAM) to provide
+ logged-in users with a set of cgroups which they can administer.
+ This allows for instance unprivileged containers, and session
+ management using cgroup process tracking.

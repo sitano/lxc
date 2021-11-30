@@ -1,0 +1,55 @@
+# Russian translation of debconf template for lxc
+# Copyright (C) 2019
+# This file is distributed under the same license as the lxc package.
+# Lev Lamberov <dogsleg@debian.org>, 2019
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxc\n"
+"Report-Msgid-Bugs-To: lxc@packages.debian.org\n"
+"POT-Creation-Date: 2018-11-29 22:19+0100\n"
+"PO-Revision-Date: 2019-01-27 20:36+0500\n"
+"Last-Translator: Lev Lamberov <dogsleg@debian.org>\n"
+"Language-Team: Debian L10N Russian <debian-l10n-russian@lists.debian.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid "Auto update lxc2 configuration format to lxc3?"
+msgstr "Обновить формат настроек lxc2 до lxc3 автоматически?"
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid ""
+"LXC 3 comes with many changes for containers' configuration files. It also "
+"comes with a binary `/usr/bin/lxc-update-config` that allows one to update "
+"his configuration."
+msgstr ""
+"LXC 3 привносит множество изменений в файлы настройки контейнеров. Также в "
+"пакете имеется двоичный файл `/usr/bin/lxc-update-config`, позволяющий "
+"обновлять настройки."
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid "This job can be done either automatically now or manually later."
+msgstr ""
+"Эта задача может быть выполнена сейчас автоматически либо позже вручную."
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid ""
+"Unpriviledged containers configurations will have to be updated manually "
+"either way via the `/usr/bin/lxc-update-config` command."
+msgstr ""
+"Так или иначе, настройки непривилегированных контейнеров следует обновить "
+"вручную с помощью команды `/usr/bin/lxc-update-config`."
