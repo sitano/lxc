@@ -1,6 +1,6 @@
 AC_PREREQ([2.69])
 
-m4_define([lxc_devel], 0)
+m4_define([lxc_devel], 1)
 m4_define([lxc_version_major], 4)
 m4_define([lxc_version_minor], 0)
 m4_define([lxc_version_micro], 12)
@@ -14,7 +14,7 @@ m4_define([lxc_abi], [lxc_abi_major.lxc_abi_minor.lxc_abi_micro])
 m4_define([lxc_version_base], [lxc_version_major.lxc_version_minor.lxc_version_micro])
 m4_define([lxc_version],
        [ifelse(lxc_devel, 1,
-        ifelse(lxc_version_beta, [], [lxc_version_base], [lxc_version_base.lxc_version_beta])-devel,
+        ifelse(lxc_version_beta, [], [lxc_version_base], [lxc_version_base.lxc_version_beta])-dev,
         ifelse(lxc_version_beta, [], [lxc_version_base], [lxc_version_base.lxc_version_beta]))])
 
 AC_INIT([lxc],[lxc_version])
