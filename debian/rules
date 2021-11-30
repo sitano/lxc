@@ -31,7 +31,7 @@ override_dh_auto_install:
 
 	# install pam config
 	cp $(CURDIR)/debian/pam-cgfs.config \
-		$(CURDIR)/debian/libpam-cgfs/usr/share/pam-configs/cgfs
+		$(CURDIR)/debian/libpam-cgfs-ivan/usr/share/pam-configs/cgfs
 
 	# cleanup .la files
 	find debian/tmp/ -type f -name \*.la -delete
@@ -39,12 +39,12 @@ override_dh_auto_install:
 
 	# lxc
 	grep complete debian/tmp/usr/share/bash-completion/completions/lxc | sed "s/.* //g" | while read cmd; do \
-		dh_link -p lxc usr/share/bash-completion/completions/lxc usr/share/bash-completion/completions/$${cmd}; \
+		dh_link -p lxc-ivan usr/share/bash-completion/completions/lxc usr/share/bash-completion/completions/$${cmd}; \
 	done
 
 	# move the tests
-	mkdir -p debian/lxc-tests/usr/bin
-	mv debian/tmp/usr/bin/lxc-test-* debian/lxc-tests/usr/bin/
+	mkdir -p debian/lxc-tests-ivan/usr/bin
+	mv debian/tmp/usr/bin/lxc-test-* debian/lxc-tests-ivan/usr/bin/
 
 	# remove lxc-top until lua-alt-getopt is available
 	rm -f debian/tmp/usr/bin/lxc-top
@@ -55,7 +55,7 @@ override_dh_auto_install:
 	mkdir -p debian/tmp/etc/sysctl.d
 	cp debian/lxc.sysctl debian/tmp/etc/sysctl.d/30-lxc-inotify.conf
 
-	dh_apparmor -p lxc --profile-name=usr.bin.lxc-start
+	dh_apparmor -p lxc-ivan --profile-name=usr.bin.lxc-start
 
 override_dh_compress:
 	dh_compress -X.cfg
@@ -64,11 +64,15 @@ override_dh_fixperms:
 	dh_fixperms -Xusr/libexec/lxc/lxc-user-nic
 
 override_dh_installinit:
-	dh_installinit -p lxc --onlyscripts --no-stop-on-upgrade --no-start --name lxc
-	dh_installinit -p lxc --onlyscripts --no-stop-on-upgrade --no-start --name lxc-net
+	dh_installinit -p lxc-ivan --onlyscripts --no-stop-on-upgrade --no-start --name lxc
+	dh_installinit -p lxc-ivan --onlyscripts --no-stop-on-upgrade --no-start --name lxc-net
 
 override_dh_installsystemd:
 	dh_installsystemd --no-stop-on-upgrade
 
 override_dh_missing:
 	dh_missing --fail-missing
+
+override_dh_shlibdeps:
+	dh_shlibdeps
+	sed -ie 's/liblxc1/liblxc1-ivan/' debian/lxc-ivan.substvars
