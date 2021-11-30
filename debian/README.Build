@@ -1,0 +1,13 @@
+## Docker - build
+
+$ docker run -it --mount type=bind,source=$(pwd),target=/root/lxc.original debian:buster bash
+$ apt update
+$ apt install -y git vim build-essential devscripts lintian fakeroot debhelper dh-exec dh-apparmor
+$ apt install -y bash-completion docbook2x apparmor apparmor-utils libapparmor-dev libcap-dev  libgnutls28-dev libpam0g-dev libseccomp-dev libselinux1-dev pkg-config libssl-dev doxygen graphviz liblua5.2-dev
+$ cd && git clone https://github.com/sitano/lxc.git -b ivan-debian-buster-lxc-4.0.12 && cd lxc
+$ debuild -b -uc -us
+
+## Debian - image
+
+$ docker export $(docker create debian:buster-slim) > test.tar
+$ tar xf test.tar

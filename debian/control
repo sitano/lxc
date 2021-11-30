@@ -1,4 +1,4 @@
-Source: lxc
+Source: lxc-ivan
 Section: admin
 Priority: optional
 Maintainer: pkg-lxc <pkg-lxc-devel@lists.alioth.debian.org>
@@ -26,29 +26,28 @@ Homepage: https://linuxcontainers.org/
 Vcs-Git: https://salsa.debian.org/lxc-team/lxc.git
 Vcs-Browser: https://salsa.debian.org/lxc-team/lxc
 
-Package: lxc
+Package: lxc-ivan
 Architecture: linux-any
 Pre-Depends: ${misc:Pre-Depends}
-Depends: liblxc1 (= ${binary:Version}),
+Depends: liblxc1-ivan (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends},
          lsb-base (>= 3.0-6),
          bridge-utils,
          dnsmasq-base,
          iptables,
-         iproute2,
+         iproute2
 Recommends: apparmor,
             debootstrap,
             dirmngr,
             gnupg,
             libpam-cgfs,
             lxcfs (>= 3.0.2-1),
-            lxc-templates (>= 3.0.2-1),
             openssl,
             rsync,
             uidmap,
-            wget,
-Suggests: btrfs-progs, lvm2, python3-lxc
+            wget
+Suggests: btrfs-progs, lvm2
 Description: Linux Containers userspace tools
  Containers are insulated areas inside a system, which have their own namespace
  for filesystem, network, PID, IPC, CPU and memory allocation and which can be
@@ -59,14 +58,14 @@ Description: Linux Containers userspace tools
  daemon in a container, or to boot an entire "containerized" system, and to
  manage and debug your containers.
 
-Package: lxc-dev
+Package: lxc-dev-ivan
 Section: libdevel
 Architecture: linux-any
-Depends: liblxc1 (= ${binary:Version}),
-         lxc (= ${binary:Version}),
+Depends: liblxc1-ivan (= ${binary:Version}),
+         lxc-ivan (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
-Breaks: lxc (<< 1:3.0.2-1~exp+1)
+Breaks: lxc-ivan (<< 1:3.0.2-1~exp+1)
 Description: Linux Containers userspace tools (development)
  Containers are insulated areas inside a system, which have their own namespace
  for filesystem, network, PID, IPC, CPU and memory allocation and which can be
@@ -75,14 +74,14 @@ Description: Linux Containers userspace tools (development)
  .
  This package contains the development files.
 
-Package: lxc-tests
+Package: lxc-tests-ivan
 Architecture: linux-any
-Depends: liblxc1 (= ${binary:Version}),
-         lxc (= ${binary:Version}),
+Depends: liblxc1-ivan (= ${binary:Version}),
+         lxc-ivan (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
-Replaces: lxc-dev (<< 1:3.0.2-1~exp+1)
-Breaks: lxc-dev (<< 1:3.0.2-1~exp+1)
+Replaces: lxc-dev-ivan (<< 1:3.0.2-1~exp+1)
+Breaks: lxc-dev-ivan (<< 1:3.0.2-1~exp+1)
 Description: Linux Containers userspace tools (test binaries)
  Containers are insulated areas inside a system, which have their own namespace
  for filesystem, network, PID, IPC, CPU and memory allocation and which can be
@@ -93,12 +92,12 @@ Description: Linux Containers userspace tools (test binaries)
  used for autopkgtest and by some developers. They are not meant to be
  installed on regular user systems.
 
-Package: liblxc1
+Package: liblxc1-ivan
 Section: libs
 Architecture: linux-any
 Multi-Arch: same
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Breaks: lxc (<< 1:3.0.2-1~exp+1)
+Breaks: lxc-ivan (<< 1:3.0.2-1~exp+1)
 Suggests: cgroupfs-mount | systemd
 Description: Linux Containers userspace tools (library)
  Containers are insulated areas inside a system, which have their own namespace
@@ -108,7 +107,7 @@ Description: Linux Containers userspace tools (library)
  .
  This package contains the shared library.
 
-Package: libpam-cgfs
+Package: libpam-cgfs-ivan
 Architecture: linux-any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
