@@ -1,0 +1,38 @@
+#!/bin/sh
+
+set -eu
+
+########################################################################
+# Configure and run an unprivileged container as a non-root user
+########################################################################
+
+uidrange=$(awk -F : "{if (\$1 == \"${USER}\") {print(\$2, \$3)}}" /etc/subuid)
+gidrange=$(awk -F : "{if (\$1 == \"${USER}\") {print(\$2, \$3)}}" /etc/subgid)
+stable=$(distro-info --stable)
+
+set -x
+
+mkdir -p ~/.config/lxc
+
+# no network as this would require some setup as root
+tee ~/.config/lxc/default.conf <<CONFIG
+lxc.include = /etc/lxc/default.conf
+lxc.net =
+lxc.net.0.type = empty
+lxc.idmap = u 0 $uidrange
+lxc.idmap = g 0 $gidrange
+lxc.mount.auto = proc:mixed sys:ro cgroup:mixed
+lxc.apparmor.profile = unconfined
+CONFIG
+
+lxc-create -t download -n mycontainer -- -d debian -r ${stable} -a amd64
+
+systemd-run --scope --quiet --user --property=Delegate=yes \
+  lxc-start -n mycontainer
+
+systemd-run --scope --quiet --user --property=Delegate=yes \
+  lxc-attach -n mycontainer -- hostname
+
+lxc-stop -n mycontainer
+lxc-destroy -n mycontainer
+

@@ -1,0 +1,54 @@
+# Debconf translations for lxc.
+# Copyright (C) 2019 THE lxc'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lxc package.
+# Adriano Rafael Gomes <adrianorg@debian.org>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxc\n"
+"Report-Msgid-Bugs-To: lxc@packages.debian.org\n"
+"POT-Creation-Date: 2018-11-29 22:19+0100\n"
+"PO-Revision-Date: 2019-01-19 18:23-0200\n"
+"Last-Translator: Adriano Rafael Gomes <adrianorg@debian.org>\n"
+"Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
+"org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid "Auto update lxc2 configuration format to lxc3?"
+msgstr "Atualizar automaticamente o formato de configuração de lxc2 para lxc3?"
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid ""
+"LXC 3 comes with many changes for containers' configuration files. It also "
+"comes with a binary `/usr/bin/lxc-update-config` that allows one to update "
+"his configuration."
+msgstr ""
+"O LXC 3 vem com várias mudanças para os arquivos de configuração dos "
+"contêineres. Ele também vem com um binário \"/usr/bin/lxc-update-config\" "
+"que permite que sua configuração seja atualizada."
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid "This job can be done either automatically now or manually later."
+msgstr ""
+"Esse procedimento pode ser feito automaticamente agora ou manualmente mais "
+"tarde."
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid ""
+"Unpriviledged containers configurations will have to be updated manually "
+"either way via the `/usr/bin/lxc-update-config` command."
+msgstr ""
+"As configurações de contêineres sem privilégios deverão ser atualizadas "
+"manualmente de qualquer modo via o comando \"/usr/bin/lxc-update-config\"."

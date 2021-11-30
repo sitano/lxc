@@ -1,0 +1,2 @@
+#! /usr/bin/dh-exec --with-scripts=subst-multiarch
+usr/lib/${DEB_HOST_MULTIARCH}/pam_cgfs.so /lib/${DEB_HOST_MULTIARCH}/security

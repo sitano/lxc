@@ -1,0 +1,2 @@
+# false positive (lxc-user-nic)
+lxc: setuid-binary

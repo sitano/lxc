@@ -1,0 +1,158 @@
+lxc (1:4.0.6-2) unstable; urgency=medium
+
+  * A new way of handling unprivileged containers starting and attachment has
+    been made available through the lxc-unpriv-start and lxc-unpriv-attach
+    commands. See /usr/share/doc/lxc/README.Debian.gz for more details.
+
+ -- Pierre-Elliott Bécue <peb@debian.org>  Fri, 11 Jun 2021 15:12:15 +0200
+
+lxc (1:4.0.2-1~1) experimental; urgency=medium
+
+  Major changes in the Debian packaging:
+
+   1. lxc-net is now enabled by default, and newly created containers will
+      have networking by default.
+
+  Major changes between LXC 3.0.x and LXC 4:
+
+   1. CGroupV2 support:
+      LXC 4 supports the unified CGroup hierarchy, which means that the
+      containers will now be able to handle a booted system with an init like
+      systemd using the unified CGroup hierarchy. This has implications
+      regarding the unprivileged containers, as a standard user can't get an
+      empty CGroup by themselves. In that specific situation, libpam_cgfs is
+      useless.
+
+      A solution to run an unprivileged container as a standard non-root user
+      is to use systemd-run:
+
+        `systemd-run --user --scope -p "Delegate=yes" lxc-start container-name`
+
+      The user instance of systemd will delegate an empty CGroup available and
+      manipulable properly by the container.
+   2. The default AppArmor profile now denies access to /proc/acpi/. This was
+      already the case in Debian but has been merged upstream.
+   3. config: Add lxc.autodev.tmpfs.size configuration key:
+      LXC supports creating a useable minimal /dev directory for the container by
+      setting lxc.autodev = 1 in the container’s config file. To do this LXC sets up
+      a tmpfs mount on /dev. This tmpfs mount could not be restricted in prior
+      releases. Now it is possible to set a limit on the size of the tmpfs mount by
+      setting lxc.autodev.tmpfs.size to the number of bytes that the tmpfs should be
+      restricted to use.
+   4. config: Add lxc.selinux.context.keyring key
+      This allows one to specify the selinux context to be used for the keyring
+      the container uses.
+   5. config: Add lxc.keyring.session
+      Setting this to 1 (default) will cause LXC to create a new session keyring.
+
+  Other changes:
+    1. Freezer support in CGroupV2:
+       As part of the cgroup2 support work for LXC 4.0 support for cgroup2’s
+       implementation of the freezer controller has been added.  It allows one
+       to poll until the cgroup is frozen or unfrozen making freezing and
+       unfreezing container’s way more reliable than before.
+    2. file utils: Add fopen_cached() and fdopen_cached
+       These helpers first read a whole file and then make it available as a
+       stream to be read via regular file-based libc apis. This makes LXC’s
+       handling of various files more robust where the underlying file can
+       change while it is read.
+    3. PIDfd support
+       LXC 4.0 fully supports the new pidfd kernel api the LXC team has merged
+       in the upstream Linux kernel. The pidfd of the container’s init process
+       can be requested via c->init_pidfd(c).
+    4. memory utils: Add new cleanup api
+       LXC 4.0 expands the usage of the compiler’s cleanup attribute by introducing
+       new internal apis to define and call cleanup macros for complex resource
+       allocations. Significant results in decreasing bugs around file
+       descriptor and memory leaks by switching to this new way of cleaning up
+       resources have been observed.
+    5. lxc-usernsexec: Make it easy to map own uid
+       The lxc-usernsexec binary now finds a default mapping as specified in
+       /etc/subuid and /etc/subgid and writes it via newuidmap and newgidmap.
+    6. seccomp: Add s390 support
+       LXC 4.0’s seccomp implementation now supports s390 as architecture.
+    7. syscalls: Improve manual syscall implementations
+       Whenever a given syscall is not supported or exposed by the underlying C
+       library of the system LXC will define syscall stubs for important
+       syscalls or new features it deems extremely valuable. This used to be
+       done by checking for __NR_<syscall-name> being defined. But
+       __NR_<syscall-name> being defined depended on the correct headers for
+       the currently running kernel LXC was compiled on being installed and
+       would be problematic whenever LXC was compiled on a system running an
+       older kernel but used or deployed on systems that use a new kernel. In
+       such scenarios LXC could not make use of new kernel features even though
+       it should. Definitions for __NR_<syscall-name> are introduced whenever
+       the system does not define it already and it is a supported architecture
+       (which is basically any architecture). This results in a better handling
+       of kernel <-> header version mismatches and compilation <-> deployment
+       kernel mismatches.
+    8. network: Improved network device creation and removal
+       The way network devices are created, tracked, moved between network
+       namespaces, and are removed has been reworked. This makes the low-level
+       network management way more reliable.
+    9. network: Allow moving wireless devices
+       LXC allowed to move wireless network devices (nl80211) into containers. This
+       was broken for a while. With 4.0 the ability to move wireless network devices
+       is restored and improved.
+
+ -- Pierre-Elliott Bécue <peb@debian.org>  Thu, 15 Apr 2020 22:44:32 +0200
+
+lxc (1:3.1.0+really3.0.3-6) unstable; urgency=medium
+
+  LXC 3 got some significant changes from LXC 2.
+
+   1. The configuration files use different variables. A userland script
+      lxc-update-config is available to update automatically your
+      configuration files. An automatic update is possible and offered by
+      debconf during the upgrade of lxc version < 3.0.2 to lxc version >=
+      3.0.2. Mind that this update will only work for privileged containers
+      with configurations present in /var/lib/lxc/*/config and any other
+      container will not be updated.
+   2. AppArmor support in Debian has increased, thus preventing some systemd
+      isolation features to work in LXC 3.0.X. Debian has backported some
+      patches from LXC 3.1 that, along with some configurations in a
+      container, will allow systemd isolation features to work.
+
+      The required configuration parameters are the ones which follow:
+        lxc.apparmor.profile = generated
+        lxc.apparmor.allow_nesting = 1
+
+      These parameters are provided in the `/etc/lxc/default.conf` file
+      shipped with LXC 3. Hence, any newly created container will have these
+      parameters set properly, except if you alter the aforementioned file.
+
+      WARNING: Note that with these parameters, unprivileged containers won't
+      be able to start. lxc.apparmor.profile must be set to either
+      'unconfined' or to 'lxc-container-default-cgns'. This can be done either
+      in the unprivileged container configuration file or in the user's
+      .config/lxc/default.conf file.
+   3. lxc-templates is deprecated by upstream. The new way of building
+      containers is via their distrobuilder software. This software isn't in
+      Debian Buster, and thus, we still provide lxc-templates. If you relied
+      on it (eg, with lxc.include parameter in some configuration file), you
+      should install lxc-templates in case it doesn't come by itself (via
+      recommends). Otherwise you may experience issues after the upgrade.
+
+ -- Pierre-Elliott Bécue <peb@debian.org>  Sat, 09 Mar 2019 13:09:05 +0100
+
+lxc (1:1.1.5-1) unstable; urgency=medium
+
+  LXC before 1.1 did silently ignore lxc.aa_profile if the kernel did
+  not have the AppArmor mount feature (by checking for the existence of
+  /sys/kernel/security/apparmor/features/mount/mask).
+
+  As of LXC 1.1 it will error out with the following message in the log:
+  Incomplete AppArmor support in your kernel
+  If you really want to start this container, set
+  lxc.aa_allow_incomplete = 1 in your container configuration file
+
+  Debian does not ship with AppArmor enabled in the kernel by default,
+  so this should not affect default installs. However if you have enabled
+  AppArmor, your containers will fail to start after the upgrade.
+
+  Please add "lxc.aa_allow_incomplete = 1" to your configuration to
+  start AppArmor-secured containers until we have full support in the
+  kernel.
+
+ -- Evgeni Golov <evgeni@debian.org>  Sun, 31 Jan 2016 18:22:40 -0200
+

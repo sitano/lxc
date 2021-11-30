@@ -1,0 +1,18 @@
+etc
+etc/lxc
+lib
+usr/bin
+usr/lib/*/lxc/rootfs
+usr/libexec/lxc/lxc-*
+usr/libexec/lxc/hooks
+usr/sbin
+usr/share/bash-completion
+usr/share/doc
+usr/share/lxc
+usr/share/man
+var
+
+debian/contrib/default.conf              etc/lxc/
+debian/contrib/lxc-net                   etc/default/
+debian/contrib/bin/lxc-unpriv-start      usr/bin/
+debian/contrib/bin/lxc-unpriv-attach     usr/bin/
