@@ -1,4 +1,4 @@
-lxc (1:4.0.11.1-0ubuntu1~18.04.1) bionic; urgency=medium
+lxc-ivan (1:4.0.11.1-0ubuntu1~18.04.1) bionic; urgency=medium
 
   * Update to lxc-4.0.11. (48e079bf3)
     - Including changes up to stable-4.0. (15515f9a3)
