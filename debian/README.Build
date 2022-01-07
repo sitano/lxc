@@ -1,0 +1,16 @@
+$ docker run -it --mount type=bind,source=$(pwd),target=/root/lxc.original ubuntu:18.04 bash
+$ apt update
+$ apt install git vim build-essential devscripts lintian fakeroot debhelper dh-exec dh-apparmor
+$ apt install bash-completion docbook2x apparmor apparmor-utils libapparmor-dev libcap-dev  libgnutls28-dev libpam0g-dev libseccomp-dev libselinux1-dev pkg-config libssl-dev doxygen graphviz liblua5.2-dev
+$ cd && git clone https://github.com/sitano/lxc.git -b ivan_ubuntu_bionic && cd lxc
+$ debuild -b -uc -us
+
+$ dpkg --info ./liblxc-common_4.0.12.1-0ubuntu1~18.04.1_amd64.deb
+$ dpkg --contents ./liblxc1_4.0.12.1-0ubuntu1~18.04.1_amd64.deb
+
+Installing:
+
+$ apt install cgroup-lite rsync bridge-utils dnsmasq-base iptables
+$ docker run -it ubuntu:18.04
+$ dpkg -i ./liblxc1-ivan_4.0.12.1-0ubuntu1~18.04.1_amd64.deb ./liblxc-ivan-common_4.0.12.1-0ubuntu1~18.04.1_amd64.deb ./lxc-ivan-utils_4.0.12.1-0ubuntu1~18.04.1_amd64.deb  ./libpam-ivan-cgfs_4.0.12.1-0ubuntu1~18.04.1_amd64.deb ./lxc-ivan_4.0.12.1-0ubuntu1~18.04.1_all.deb ./liblxc-ivan-dev_4.0.12.1-0ubuntu1~18.04.1_amd64.deb ./lxc-ivan-dev_4.0.12.1-0ubuntu1~18.04.1_all.deb
+

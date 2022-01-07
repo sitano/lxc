@@ -1,4 +1,4 @@
-Source: lxc
+Source: lxc-ivan
 Section: admin
 Priority: optional
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -21,43 +21,47 @@ Vcs-Git: https://github.com/lxc/lxc-pkg-ubuntu
 Vcs-Browser: https://github.com/lxc/lxc-pkg-ubuntu
 Rules-Requires-Root: no
 
-Package: lxc
+Package: lxc-ivan
 Architecture: all
-Depends: lxc-utils (>= ${source:Version}), ${misc:Depends}
+Depends: lxc-ivan-utils (>= ${source:Version}), ${misc:Depends}
+Conflicts: lxc
 Section: oldlibs
 Description: Transitional package - lxc -> lxc-utils
  This is a transitional dummy package. It can safely be removed.
  .
  lxc is now replaced by lxc-utils.
 
-Package: lxc1
+Package: lxc1-ivan
 Architecture: all
-Depends: lxc-utils (>= ${source:Version}), ${misc:Depends}
+Depends: lxc-ivan-utils (>= ${source:Version}), ${misc:Depends}
+Conflicts: lxc1
 Section: oldlibs
 Description: Transitional package - lxc1 -> lxc-utils
  This is a transitional dummy package. It can safely be removed.
  .
  lxc1 is now replaced by lxc-utils.
 
-Package: lxc-dev
+Package: lxc-ivan-dev
 Architecture: all
-Depends: liblxc-dev (>= ${source:Version}), ${misc:Depends}
+Depends: liblxc-ivan-dev (>= ${source:Version}), ${misc:Depends}
+Conflicts: lxc-dev
 Section: oldlibs
 Description: Transitional package - lxc-dev -> liblxc-dev
  This is a transitional dummy package. It can safely be removed.
  .
  lxc-dev is now replaced by liblxc-dev.
 
-Package: lxc-utils
+Package: lxc-ivan-utils
 Architecture: linux-any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: adduser,
          bridge-utils,
          dnsmasq-base,
          iptables,
-         liblxc1 (= ${binary:Version}),
+         liblxc1-ivan (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
+Conflicts: lxc-utils
 Recommends: libpam-cgfs
 Suggests: btrfs-tools, lvm2, lxc-templates, lxctl
 Replaces: lxc1 (<< 2.1.1-0ubuntu2~)
@@ -72,21 +76,30 @@ Description: Linux Containers userspace tools
  daemon in a container, or to boot an entire "containerized" system, and to
  manage and debug your containers.
 
-Package: liblxc-common
+Package: liblxc-ivan-common
 Architecture: linux-any
-Depends: liblxc1 (= ${binary:Version}),
+Depends: liblxc1-ivan (= ${binary:Version}),
          ${lxc:Depends},
          ${misc:Depends},
          ${shlibs:Depends}
-Conflicts: lxc-common
+Conflicts: lxc-common,
+           lxc-ivan-common,
+           liblxc-common,
 Replaces: lxc-common,
           lxc-templates (<< 3.0.0~beta1-0ubuntu1~),
           lxc-utils (<< 1:4.0.0-0ubuntu1~),
+          lxc1 (<< 3.0.0~beta2-0ubuntu2~),
+          lxc-ivan-common,
+          lxc-ivan-templates (<< 3.0.0~beta1-0ubuntu1~),
+          lxc-ivan-utils (<< 1:4.0.0-0ubuntu1~),
           lxc1 (<< 3.0.0~beta2-0ubuntu2~)
 Breaks: lxc-templates (<< 3.0.0~beta1-0ubuntu1~),
         lxc-utils (<< 1:4.0.0-0ubuntu1~),
-        lxc1 (<< 3.0.0~beta2-0ubuntu2~)
-Provides: lxc-common
+        lxc1 (<< 3.0.0~beta2-0ubuntu2~),
+        lxc-ivan-templates (<< 3.0.0~beta1-0ubuntu1~),
+        lxc-ivan-utils (<< 1:4.0.0-0ubuntu1~),
+        lxc1-ivan (<< 3.0.0~beta2-0ubuntu2~)
+Provides: lxc-common, lxc-ivan-common
 Description: Linux Containers userspace tools (common tools)
  Containers are insulated areas inside a system, which have their own namespace
  for filesystem, network, PID, IPC, CPU and memory allocation and which can be
@@ -96,12 +109,15 @@ Description: Linux Containers userspace tools (common tools)
  This package contains a few binaries and security profiles required by
  all liblxc users.
 
-Package: liblxc-dev
+Package: liblxc-ivan-dev
 Section: libdevel
 Architecture: linux-any
-Depends: liblxc1 (= ${binary:Version}), ${misc:Depends}
-Replaces: lxc-dev (<< 2.1.1-0ubuntu2~)
-Breaks: lxc-dev (<< 2.1.1-0ubuntu2~)
+Depends: liblxc1-ivan (= ${binary:Version}), ${misc:Depends}
+Conflicts: liblxc-dev
+Replaces: lxc-dev (<< 2.1.1-0ubuntu2~),
+          lxc-ivan-dev (<< 2.1.1-0ubuntu2~)
+Breaks: lxc-dev (<< 2.1.1-0ubuntu2~),
+        lxc-ivan-dev (<< 2.1.1-0ubuntu2~)
 Description: Linux Containers userspace tools (development)
  Containers are insulated areas inside a system, which have their own namespace
  for filesystem, network, PID, IPC, CPU and memory allocation and which can be
@@ -110,15 +126,16 @@ Description: Linux Containers userspace tools (development)
  .
  This package contains the development files.
 
-Package: liblxc1
+Package: liblxc1-ivan
 Architecture: linux-any
 Section: libs
 Pre-Depends: ${misc:Pre-Depends}
 Depends: cgroup-lite | systemd,
-         liblxc-common (= ${binary:Version}),
+         liblxc-ivan-common (= ${binary:Version}),
          rsync,
          ${misc:Depends},
          ${shlibs:Depends}
+Conflicts: liblxc1
 Recommends: lxcfs, uidmap
 Description: Linux Containers userspace tools (library)
  Containers are insulated areas inside a system, which have their own namespace
@@ -128,16 +145,18 @@ Description: Linux Containers userspace tools (library)
  .
  This package contains the libraries.
 
-Package: libpam-cgfs
+Package: libpam-ivan-cgfs
 Architecture: linux-any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: libpam-runtime (>= 1.0.1-6),
          ${lxcfs:Depends},
          ${misc:Depends},
          ${shlibs:Depends}
-Replaces: lxc-utils (<< 1:4.0.0-0ubuntu1~)
-Breaks: lxc-utils (<< 1:4.0.0-0ubuntu1~)
-Conflicts: libpam-cgm
+Conflicts: libpam-cgm, libpam-cgfs
+Replaces: lxc-utils (<< 1:4.0.0-0ubuntu1~),
+          lxc-ivan-utils (<< 1:4.0.0-0ubuntu1~)
+Breaks: lxc-utils (<< 1:4.0.0-0ubuntu1~),
+        lxc-ivan-utils (<< 1:4.0.0-0ubuntu1~)
 Description: PAM module for managing cgroups for LXC
  Containers are insulated areas inside a system, which have their own namespace
  for filesystem, network, PID, IPC, CPU and memory allocation and which can be
