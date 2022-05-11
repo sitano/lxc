@@ -3143,6 +3143,19 @@ static int __initialize_cgroups(struct cgroup_ops *ops, bool relative,
 
 		/* Handle the unified cgroup hierarchy. */
 		line = it;
+
+		if (unified_cgroup(line)) {
+      // TODO: completelly ignore 0:
+			TRACE("Unified cgroup ignore.");
+      continue;
+    }
+
+    if (strstr(line, "systemd")) {
+      // TODO: completelly ignore systemd
+      TRACE("Skipping cgroup: %s", line);
+      continue;
+    }
+
 		if (unified_cgroup(line)) {
 			char *unified_mnt;
 
@@ -3221,6 +3234,7 @@ static int __initialize_cgroups(struct cgroup_ops *ops, bool relative,
 			if (!controllers)
 				return ret_errno(ENOMEM);
 
+      TRACE("Opening controllers at %d/%s", ops->dfd_mnt, controllers);
 			dfd_mnt = open_at(ops->dfd_mnt,
 					  controllers,
 					  PROTECT_OPATH_DIRECTORY,
@@ -3245,11 +3259,12 @@ static int __initialize_cgroups(struct cgroup_ops *ops, bool relative,
 			/* create a relative path */
 			__current_cgroup = deabs(__current_cgroup);
 
-			current_cgroup = strdup(__current_cgroup);
+			current_cgroup = strdup(".");
 			if (!current_cgroup)
 				return ret_errno(ENOMEM);
 
 			if (!is_empty_string(current_cgroup)) {
+        TRACE("Opening cgroup at %d/%s", dfd_mnt, controllers);
 				dfd_base = open_at(dfd_mnt, current_cgroup,
 						   PROTECT_OPATH_DIRECTORY,
 						   PROTECT_LOOKUP_BENEATH_XDEV, 0);
